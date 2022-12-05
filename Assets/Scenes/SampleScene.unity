@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 541101117}
   - component: {fileID: 541101116}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -560,7 +560,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1779133514}
-  m_Father: {fileID: 963194228}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -641,6 +641,7 @@ GameObject:
   - component: {fileID: 552351911}
   - component: {fileID: 552351910}
   - component: {fileID: 552351909}
+  - component: {fileID: 552351912}
   m_Layer: 0
   m_Name: plus
   m_TagString: Untagged
@@ -713,9 +714,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1779133517}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: ClickOperation
+        m_MethodName: ReadIputField1
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -723,6 +724,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: +
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1779133517}
+        m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
+        m_MethodName: ReadIputField2
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1779133517}
+        m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
+        m_MethodName: Plus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &552351910
@@ -763,6 +788,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552351907}
   m_CullTransparentMesh: 1
+--- !u!114 &552351912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552351907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c8e1a5065843b4d8aee14c7f42c43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputField1: {fileID: 1010791349}
+  InputField2: {fileID: 1202088058}
+  ResultField: {fileID: 1618159276}
+  Result: 0
 --- !u!1 &665997841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,7 +1052,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &712268368
 GameObject:
@@ -1523,9 +1564,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1779133517}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: ClickOperation
+        m_MethodName: ReadIputField1
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1533,6 +1574,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: /
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1779133517}
+        m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
+        m_MethodName: ReadIputField2
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1779133517}
+        m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
+        m_MethodName: Divide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &799014226
@@ -1653,10 +1718,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 541101115}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010345441
 GameObject:
@@ -2017,6 +2081,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputField1: {fileID: 1010791349}
   InputField2: {fileID: 1202088058}
+  ResultField: {fileID: 0}
+  Result: 0
 --- !u!1 &1041850215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,7 +2754,7 @@ GameObject:
   - component: {fileID: 1779133515}
   - component: {fileID: 1779133517}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Calculator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2773,6 +2839,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InputField1: {fileID: 1010791349}
   InputField2: {fileID: 1202088058}
+  ResultField: {fileID: 1618159276}
+  Result: 0
 --- !u!1 &1796041205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,9 +2925,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1779133517}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: ClickOperation
+        m_MethodName: ReadIputField1
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2867,6 +2935,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: '-'
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1779133517}
+        m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
+        m_MethodName: ReadIputField2
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1779133517}
+        m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
+        m_MethodName: Minus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1796041208
@@ -3108,7 +3200,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2138674505
 GameObject:
@@ -3194,9 +3286,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1779133517}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: ClickOperation
+        m_MethodName: ReadIputField1
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3204,6 +3296,30 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: '*'
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1779133517}
+        m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
+        m_MethodName: ReadIputField2
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1779133517}
+        m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
+        m_MethodName: Multiply
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2138674508
