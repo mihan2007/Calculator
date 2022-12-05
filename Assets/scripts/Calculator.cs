@@ -108,5 +108,6 @@ public class Calculator : MonoBehaviour
     {
         Result = Mathf.Pow(_number1, _number2);
         ResultField.text = Result.ToString();
+
     }
 }
