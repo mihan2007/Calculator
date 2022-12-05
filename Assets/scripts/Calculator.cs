@@ -79,4 +79,34 @@ public class Calculator : MonoBehaviour
         }
     }
 
+    public void Minimum()
+    {
+        if (_number1 > _number2)
+        {
+            Result = _number2;
+        }
+        else 
+        {
+            Result = _number1;
+        }
+        ResultField.text = Result.ToString();
+    }
+    public void Maximum()
+    {
+        if (_number1 < _number2)
+        {
+            Result = _number2;
+        }
+        else
+        {
+            Result = _number1;
+        }
+        ResultField.text = Result.ToString();
+    }
+
+    public void Exponentiation() 
+    {
+        Result = Mathf.Pow(_number1, _number2);
+        ResultField.text = Result.ToString();
+    }
 }
