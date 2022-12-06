@@ -5,35 +5,29 @@ using TMPro;
 
 public class Calculator : MonoBehaviour
 {
-
-    public TMP_InputField InputField1;
-    public TMP_InputField InputField2;
-    public TMP_InputField ResultField;
+    [SerializeField] private TMP_InputField _inputField1;
+    [SerializeField] private TMP_InputField _inputField2;
+    [SerializeField] private TMP_InputField _resultField;
     private float _number1 = 0;
     private float _number2 = 0;
     public float Result;
-
-
-
-    public void ReadIputField1(string s)
+    public void ReadInputField1(string rawValue)
     {
-        s = InputField1.text; 
-        if (float.TryParse(s, out float value)) // проверяем является введенное значение числом
+        rawValue = _inputField1.text; 
+        if (float.TryParse(rawValue, out float value))
         {
-            //_number1 = float.Parse(s);
             _number1 = value;
         }
         else 
         {
-            _number1 = 0;       // если поле пустое или введено не число приравниваем число к нулю 
+            _number1 = 0;
+            _inputField1.text = _number1.ToString();
         }
-         //Debug.Log(_number1);
     }
-
-    public void ReadIputField2(string s2)
+    public void ReadInputField2(string rawValue)
     {
-        s2 = InputField2.text;
-        if (float.TryParse(s2, out float value2))
+        rawValue = _inputField2.text;
+        if (float.TryParse(rawValue, out float value2))
         {
             _number2 = value2;
         }
@@ -42,43 +36,37 @@ public class Calculator : MonoBehaviour
             _number2 = 0;
         }
     }
-
     public void Multiply()
     {
         Result = _number1 * _number2;
         Debug.Log(Result);
-        ResultField.text = Result.ToString();
-
+        _resultField.text = Result.ToString();
     }
-
-    public void Minus ()
+    public void Minus()
     {
         Result = _number1 - _number2;
         Debug.Log(Result);
-        ResultField.text = Result.ToString();
+        _resultField.text = Result.ToString();
     }
-
     public void Plus()
     {
         Result = _number1 + _number2;
         Debug.Log(Result);
-        ResultField.text = Result.ToString();
+        _resultField.text = Result.ToString();
     }
-
     public void Divide() 
     {
         if (_number2 != 0)
         {
             Result = _number1 / _number2;
             Debug.Log(Result);
-            ResultField.text = Result.ToString();
+            _resultField.text = Result.ToString();
         }
         else 
         {
-            ResultField.text = "You can't divide by zero";
+            _resultField.text = "You can't divide by zero";
         }
     }
-
     public void Minimum()
     {
         if (_number1 > _number2)
@@ -89,7 +77,7 @@ public class Calculator : MonoBehaviour
         {
             Result = _number1;
         }
-        ResultField.text = Result.ToString();
+        _resultField.text = Result.ToString();
     }
     public void Maximum()
     {
@@ -101,13 +89,11 @@ public class Calculator : MonoBehaviour
         {
             Result = _number1;
         }
-        ResultField.text = Result.ToString();
+        _resultField.text = Result.ToString();
     }
-
     public void Exponentiation() 
     {
         Result = Mathf.Pow(_number1, _number2);
-        ResultField.text = Result.ToString();
-
+        _resultField.text = Result.ToString();
     }
 }
