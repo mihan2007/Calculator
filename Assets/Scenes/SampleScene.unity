@@ -1095,7 +1095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputField1: {fileID: 0}
   _inputField2: {fileID: 0}
-  ResultField: {fileID: 0}
+  _resultField: {fileID: 0}
   Result: 0
 --- !u!1 &665997841
 GameObject:
@@ -2374,7 +2374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputField1: {fileID: 1010791349}
   _inputField2: {fileID: 0}
-  ResultField: {fileID: 0}
+  _resultField: {fileID: 0}
   Result: 0
 --- !u!1 &1041850215
 GameObject:
@@ -3563,7 +3563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _inputField1: {fileID: 1010791349}
   _inputField2: {fileID: 1202088058}
-  ResultField: {fileID: 1618159276}
+  _resultField: {fileID: 1618159276}
   Result: 0
 --- !u!1 &1796041205
 GameObject:
