@@ -8,9 +8,11 @@ public class Calculator : MonoBehaviour
     [SerializeField] private TMP_InputField _inputField1;
     [SerializeField] private TMP_InputField _inputField2;
     [SerializeField] private TMP_InputField _resultField;
+    [SerializeField] private int _buttonNumber;
     private float _number1 = 0;
     private float _number2 = 0;
     public float Result;
+    public bool Comma = false;
     public void ReadInputField1(string rawValue)
     {
         rawValue = _inputField1.text; 
@@ -34,6 +36,20 @@ public class Calculator : MonoBehaviour
         else
         {
             _number2 = 0;
+        }
+    }
+    public void InputNumberOnClick(int ButtonNumber)
+    {
+
+        Debug.Log(Comma);
+        if (ButtonNumber != 34)  // the number 34 is ID number of comma button
+        {
+            _inputField1.text = _inputField1.text + ButtonNumber.ToString();
+        }
+        else if (ButtonNumber == 34 && Comma == false)
+        {
+            _inputField1.text = _inputField1.text + ",";
+            Comma = true;
         }
     }
     public void Multiply()
