@@ -8,11 +8,12 @@ public class Calculator : MonoBehaviour
     [SerializeField] private TMP_InputField _inputField1;
     [SerializeField] private TMP_InputField _inputField2;
     [SerializeField] private TMP_InputField _resultField;
-    [SerializeField] private int _buttonNumber;
+   
     private float _number1 = 0;
     private float _number2 = 0;
-    public float Result;
-    public bool Comma = false;
+    [SerializeField] private float _result;
+    [SerializeField] private bool _ñomma = false;
+    [SerializeField] private bool _screenInputMode = true;
     public void ReadInputField1(string rawValue)
     {
         rawValue = _inputField1.text; 
@@ -40,43 +41,87 @@ public class Calculator : MonoBehaviour
     }
     public void InputNumberOnClick(int ButtonNumber)
     {
+        _ñomma = _inputField1.text.Contains(",");
+        
+        if (_screenInputMode == false) 
+        {
+            _inputField1.text = "";
+            _screenInputMode = true;
+        }
 
-        Debug.Log(Comma);
-        if (ButtonNumber != 34)  // the number 34 is ID number of comma button
+        if (ButtonNumber != 34)  // the number 34 is ID number of _ñomma button
         {
             _inputField1.text = _inputField1.text + ButtonNumber.ToString();
         }
-        else if (ButtonNumber == 34 && Comma == false)
+        else if (ButtonNumber == 34 && _ñomma == false)
         {
             _inputField1.text = _inputField1.text + ",";
-            Comma = true;
+            _ñomma = true;
         }
+    }
+
+    public void OperationOnClick (string operaion)
+    {
+        
+        Debug.Log(operaion);
+        switch (operaion)
+        {
+            case "clear":
+                _result = 0;
+                _inputField1.text = "";
+                _inputField2.text = "";
+                break;
+            case "-1":
+                _result = float.Parse(_inputField1.text)* (-1);
+                _inputField1.text = _result.ToString();
+                break;
+
+            case "+":
+                    if (_result == 0)
+                {
+                    _result = float.Parse(_inputField1.text);
+                    _inputField2.text = _result.ToString() + "+";
+                    _screenInputMode = false;
+                }
+                    else
+                {
+                    _result = _result + float.Parse(_inputField1.text);
+                    _inputField2.text = _inputField2.text  + _inputField1.text + "+";
+                    _inputField1.text = _result.ToString();
+                    _screenInputMode = false;
+                }
+
+                break;
+            case "=":
+                _inputField1.text = _result.ToString();
+                _inputField2.text = "";
+                _screenInputMode = false;
+                break;
+        }
+
+
     }
     public void Multiply()
     {
-        Result = _number1 * _number2;
-        Debug.Log(Result);
-        _resultField.text = Result.ToString();
+        _result = _number1 * _number2;
+        _resultField.text = _result.ToString();
     }
     public void Minus()
     {
-        Result = _number1 - _number2;
-        Debug.Log(Result);
-        _resultField.text = Result.ToString();
+        _result = _number1 - _number2;
+        _resultField.text = _result.ToString();
     }
     public void Plus()
     {
-        Result = _number1 + _number2;
-        Debug.Log(Result);
-        _resultField.text = Result.ToString();
+        _result = _number1 + _number2;
+        _resultField.text = _result.ToString();
     }
     public void Divide() 
     {
         if (_number2 != 0)
         {
-            Result = _number1 / _number2;
-            Debug.Log(Result);
-            _resultField.text = Result.ToString();
+            _result = _number1 / _number2;
+            _resultField.text = _result.ToString();
         }
         else 
         {
@@ -87,29 +132,29 @@ public class Calculator : MonoBehaviour
     {
         if (_number1 > _number2)
         {
-            Result = _number2;
+            _result = _number2;
         }
         else 
         {
-            Result = _number1;
+            _result = _number1;
         }
-        _resultField.text = Result.ToString();
+        _resultField.text = _result.ToString();
     }
     public void Maximum()
     {
         if (_number1 < _number2)
         {
-            Result = _number2;
+            _result = _number2;
         }
         else
         {
-            Result = _number1;
+            _result = _number1;
         }
-        _resultField.text = Result.ToString();
+        _resultField.text = _result.ToString();
     }
     public void Exponentiation() 
     {
-        Result = Mathf.Pow(_number1, _number2);
-        _resultField.text = Result.ToString();
+        _result = Mathf.Pow(_number1, _number2);
+        _resultField.text = _result.ToString();
     }
 }
