@@ -1548,8 +1548,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1779133517}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: OperationOnClick
-        m_Mode: 5
+        m_MethodName: Plus
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1612,8 +1612,9 @@ MonoBehaviour:
   _inputField2: {fileID: 0}
   _resultField: {fileID: 0}
   _result: 0
-  "_\u0441omma": 0
+  _comma: 0
   _screenInputMode: 1
+  _number1: 0
 --- !u!1 &665997841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,8 +2669,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1779133517}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: OperationOnClick
-        m_Mode: 5
+        m_MethodName: Polarity
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3569,8 +3570,9 @@ MonoBehaviour:
   _inputField2: {fileID: 0}
   _resultField: {fileID: 0}
   _result: 0
-  "_\u0441omma": 0
+  _comma: 0
   _screenInputMode: 1
+  _number1: 0
 --- !u!1 &1032020444
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,11 +3998,17 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
+      m_Calls: []
+  m_OnSubmit:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelect:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1779133517}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: ReadInputField2
-        m_Mode: 5
+        m_MethodName: ChangeFocus
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4009,12 +4017,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_OnSubmit:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelect:
-    m_PersistentCalls:
-      m_Calls: []
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls: []
@@ -6256,8 +6258,9 @@ MonoBehaviour:
   _inputField2: {fileID: 1202088058}
   _resultField: {fileID: 1618159276}
   _result: 0
-  "_\u0441omma": 0
+  _comma: 0
   _screenInputMode: 1
+  _number1: 0
 --- !u!1 &1796041205
 GameObject:
   m_ObjectHideFlags: 0
@@ -7468,8 +7471,9 @@ MonoBehaviour:
   _inputField2: {fileID: 0}
   _resultField: {fileID: 0}
   _result: 0
-  "_\u0441omma": 0
+  _comma: 0
   _screenInputMode: 1
+  _number1: 0
 --- !u!1 &1959438912
 GameObject:
   m_ObjectHideFlags: 0
