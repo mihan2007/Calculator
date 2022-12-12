@@ -13,24 +13,17 @@ public class Calculator : MonoBehaviour
     [SerializeField] private bool _screenInputMode = true; // The imput field has two will have two diffrenet modes. Firstone it to show result after press button "=" and the second is edition mode 
     [SerializeField] private bool _numberOneStatus = false;
     [SerializeField] private int _operationID;
-    [SerializeField] private int _preOperationID;
 
     public float _number1 = 0;
     public float _number2 = 0;
 
-    public void clear()
+    public void Clear()
     {
         _number1 = 0;
         _number2 = 0;
         _inputField1.text = "";
         _inputField2.text = "";
-        {
-
-
-
-        }
     }
-
     public void ChangeFocus()
     {
         _inputField1.ActivateInputField();
@@ -47,7 +40,6 @@ public class Calculator : MonoBehaviour
             _number1 = 0;
         }
     }
-
     public void InputNumberOnClick(int ButtonNumber)
     {
         _comma = _inputField1.text.Contains(",");
@@ -57,7 +49,6 @@ public class Calculator : MonoBehaviour
             _inputField1.text = "";
             _screenInputMode = true;
         }
-
         if (ButtonNumber != 34)  // the number 34 is ID number of _comma button
         {
             _inputField1.text = _inputField1.text + ButtonNumber.ToString();
@@ -68,13 +59,17 @@ public class Calculator : MonoBehaviour
             _comma = true;
         }
     }
-
-
     public void Polarity()
     {
-
+        if (_inputField1.text.Contains("-"))
+        {
+            _inputField1.text = Mathf.Abs(float.Parse(_inputField1.text)).ToString();
+        }
+        else
+        {
+            _inputField1.text = "-" + _inputField1.text;
+        }
     }
-
     public void OperationOnClick(int ID)
     {
         if (ID != 0 && ID != _operationID && _numberOneStatus == true)
@@ -161,7 +156,6 @@ public class Calculator : MonoBehaviour
             _screenInputMode = true;
             _numberOneStatus = true;
             _inputField1.text = "";
-
         }
 
         else
@@ -213,26 +207,32 @@ public class Calculator : MonoBehaviour
         }
         else
         {
-            clear();
+            Clear();
         }
     }
-
     public string Fraction(float fracNum)
     {
-        List<int> result = new List<int>();
-        int divisor = 2;
-        while (fracNum != 1)
+        string sendToFunction;
+        if (fracNum == ((double)((int)fracNum)))
         {
-            while (fracNum % divisor == 0)
+            List<int> result = new List<int>();
+            int divisor = 2;
+            while (fracNum != 1)
             {
-                result.Add(divisor);
-                fracNum = fracNum / divisor;
+                while (fracNum % divisor == 0)
+                {
+                    result.Add(divisor);
+                    fracNum = fracNum / divisor;
+                }
+                divisor = divisor + 1;
             }
-            divisor = divisor + 1;
+            sendToFunction = string.Join(",", result);
         }
-        string sendToFunction = string.Join(",", result);
 
+        else
+        {
+            sendToFunction = "Not a natural number";
+        }
         return sendToFunction;
     }
-
 }
