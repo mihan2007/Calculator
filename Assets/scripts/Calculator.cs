@@ -11,7 +11,7 @@ public class Calculator : MonoBehaviour
     [SerializeField] private float _result;
     [SerializeField] private bool _comma = false;
     [SerializeField] private bool _screenInputMode = true; // The imput field has two will have two diffrenet modes. Firstone it to show result after press button "=" and the second is edition mode 
-    [SerializeField] private bool _numberOneStatus= false;
+    [SerializeField] private bool _numberOneStatus = false;
     [SerializeField] private int _operationID;
     [SerializeField] private int _preOperationID;
 
@@ -24,11 +24,11 @@ public class Calculator : MonoBehaviour
         _number2 = 0;
         _inputField1.text = "";
         _inputField2.text = "";
-    {
+        {
 
 
 
-    }
+        }
     }
 
     public void ChangeFocus()
@@ -37,7 +37,7 @@ public class Calculator : MonoBehaviour
     }
     public void ReadInputField1(string rawValue)
     {
- 
+
         if (float.TryParse(rawValue, out float value2))
         {
             _number1 = value2;
@@ -47,12 +47,12 @@ public class Calculator : MonoBehaviour
             _number1 = 0;
         }
     }
-    
+
     public void InputNumberOnClick(int ButtonNumber)
     {
         _comma = _inputField1.text.Contains(",");
 
-        if (_screenInputMode == false) 
+        if (_screenInputMode == false)
         {
             _inputField1.text = "";
             _screenInputMode = true;
@@ -70,68 +70,67 @@ public class Calculator : MonoBehaviour
     }
 
 
-    public void Polarity ()
+    public void Polarity()
     {
 
     }
 
     public void OperationOnClick(int ID)
     {
-            if (ID !=0 && ID != _operationID && _numberOneStatus == true)
-            {
+        if (ID != 0 && ID != _operationID && _numberOneStatus == true)
+        {
             OperationOnClick(_operationID);
+        }
+
+        if (_numberOneStatus == false)
+        {
+
+            if (_inputField1.text != "")
+            {
+                _number1 = float.Parse(_inputField1.text);
+            }
+            else
+            {
+                _number1 = 0;
             }
 
-            if (_numberOneStatus == false)
+            if (ID == 1)
             {
-                
-            if (_inputField1.text != "")
-                {
-                _number1 = float.Parse(_inputField1.text);
-                }
-                else
-                {
-                _number1 = 0;
-                }
-
-                if (ID == 1)
-                {
-                    _inputField2.text = _number1.ToString() + "+";
-                }
-                else if (ID == 2)
-                {
-                    _inputField2.text = _number1.ToString() + "-";
-                }
-                else if (ID == 3)
-                {
-                    _inputField2.text = _number1.ToString() + "*";
-                }
-                else if (ID == 4)
-                {
-                    _inputField2.text = _number1.ToString() + "/";
-                }
-                else if (ID == 5)
-                {
-                    _inputField2.text = _number1.ToString() + "^";
-                }
-                else if (ID == 6)
-                {
+                _inputField2.text = _number1.ToString() + "+";
+            }
+            else if (ID == 2)
+            {
+                _inputField2.text = _number1.ToString() + "-";
+            }
+            else if (ID == 3)
+            {
+                _inputField2.text = _number1.ToString() + "*";
+            }
+            else if (ID == 4)
+            {
+                _inputField2.text = _number1.ToString() + "/";
+            }
+            else if (ID == 5)
+            {
+                _inputField2.text = _number1.ToString() + "^";
+            }
+            else if (ID == 6)
+            {
                 _inputField2.text = "Ln(" + _number1.ToString() + ")";
-                _result = Mathf.Log(_number1);
                 _inputField1.text = _result.ToString();
                 _number1 = 0;
                 _number2 = 0;
                 return;
-                }
-                else if (ID == 7)
-                {
+            }
+            else if (ID == 7)
+            {
                 _inputField2.text = "Log10(" + _number1.ToString() + ")";
                 _result = Mathf.Log10(_number1);
                 _inputField1.text = _result.ToString();
                 _number1 = 0;
                 _number2 = 0;
                 return;
-                }
+            }
             else if (ID == 8)
             {
                 _inputField2.text = "Ctï(" + _number1.ToString() + ")";
@@ -150,54 +149,59 @@ public class Calculator : MonoBehaviour
                 _number2 = 0;
                 return;
             }
+            else if (ID == 10)
+            {
+                _inputField2.text = "factorization(" + _number1.ToString() + ")";
+                string _result = Fraction(_number1);
+                _inputField1.text = _result.ToString();
+                _number1 = 0;
+                _number2 = 0;
+                return;
+            }
             _screenInputMode = true;
             _numberOneStatus = true;
             _inputField1.text = "";
 
-            }
+        }
 
-            else
+        else
+        {
+
+            _number2 = float.Parse(_inputField1.text);
+
+            Debug.Log("number1=" + _number1.ToString());
+            Debug.Log("number2=" + _number2.ToString());
+
+
+            _inputField2.text = _inputField2.text + _number2.ToString();
+
+            if (ID == 1)
             {
-
-               _number2 = float.Parse(_inputField1.text);
-
-                Debug.Log("number1=" + _number1.ToString());
-                Debug.Log("number2=" + _number2.ToString());
-
-
-                _inputField2.text = _inputField2.text + _number2.ToString();
-
-                if (ID == 1)
-                {
-                    _result = _number1 + _number2;
-                }
-                else if (ID == 2)
-                {
-                    _result = _number1 - _number2;
-                }
-                else if (ID == 3)
-                {
-                    _result = _number1 * _number2;
-                }
-                else if (ID == 4)
-                {
+                _result = _number1 + _number2;
+            }
+            else if (ID == 2)
+            {
+                _result = _number1 - _number2;
+            }
+            else if (ID == 3)
+            {
+                _result = _number1 * _number2;
+            }
+            else if (ID == 4)
+            {
                 _result = _number1 / _number2;
-                }
-                else if (ID == 5)
-                {
-                    _result = Mathf.Pow(_number1, _number2);
-                }
-                else if (ID == 6)
-                {
-
-                }
+            }
+            else if (ID == 5)
+            {
+                _result = Mathf.Pow(_number1, _number2);
+            }
 
             _inputField1.text = _result.ToString();
             _numberOneStatus = false;
             _number1 = 0;
             _number2 = 0;
         }
-        
+
         _operationID = ID;
         Debug.Log("result=" + _result.ToString());
     }
@@ -205,12 +209,30 @@ public class Calculator : MonoBehaviour
     {
         if (_numberOneStatus == true)
         {
-            OperationOnClick(_operationID); 
+            OperationOnClick(_operationID);
         }
         else
         {
             clear();
         }
+    }
+
+    public string Fraction(float fracNum)
+    {
+        List<int> result = new List<int>();
+        int divisor = 2;
+        while (fracNum != 1)
+        {
+            while (fracNum % divisor == 0)
+            {
+                result.Add(divisor);
+                fracNum = fracNum / divisor;
+            }
+            divisor = divisor + 1;
+        }
+        string sendToFunction = string.Join(",", result);
+
+        return sendToFunction;
     }
 
 }
